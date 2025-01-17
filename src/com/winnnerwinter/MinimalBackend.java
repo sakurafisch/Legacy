@@ -22,10 +22,51 @@ public class MinimalBackend {
                 }
             }
         });
+
+        server.createContext("/hello", exchange -> {
+            String name = getQueryParam(exchange, "name", "World");
+            String response = "Hello, " + name + "!";
+            sendResponse(exchange, 200, response);
+        });
+
+        server.createContext("/info", exchange -> {
+            String response = "{ \"message\": \"This is a JSON response\", \"status\": \"success\" }";
+            exchange.getResponseHeaders().add("Content-Type", "application/json");
+            sendResponse(exchange, 200, response);
+        });
+
+        server.createContext("/greet", exchange -> {
+            String path = exchange.getRequestURI().getPath();
+            String[] segments = path.split("/");
+            String name = (segments.length > 2) ? segments[2] : "Stranger";
+            String response = "Greetings, " + name + "!";
+            sendResponse(exchange, 200, response);
+        });
         
         // Start the server
         server.setExecutor(null); // Use the default executor
         server.start();
         System.out.println("Server started on port 8301");
+    }
+
+    private static void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
+        exchange.sendResponseHeaders(statusCode, response.getBytes().length);
+        try (OutputStream os = exchange.getResponseBody()) {
+            os.write(response.getBytes());
+        }
+    }
+
+    private static String getQueryParam(HttpExchange exchange, String key, String defaultValue) {
+        String query = exchange.getRequestURI().getQuery();
+        if (query == null) return defaultValue;
+
+        String[] pairs = query.split("&");
+        for (String pair : pairs) {
+            String[] keyValue = pair.split("=");
+            if (keyValue.length == 2 && keyValue[0].equalsIgnoreCase(key)) {
+                return keyValue[1];
+            }
+        }
+        return defaultValue;
     }
 }
