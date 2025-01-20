@@ -11,6 +11,8 @@ winget search openjdk
 winget install AdoptOpenJDK.OpenJDK.8
 ```
 
+如果需要安装多个JDK版本，可以使用 [jvms](https://github.com/ystyle/jvms)
+
 IDE可以选择 `Eclipse` 或 `VSCode`
 
 #### `Eclipse` 插件
