@@ -39,3 +39,7 @@ Check [VSCodium](https://vscodium.com/) if you need a freely-licensed binary dis
 winget search vscodium
 winget install VSCodium.VSCodium
 ```
+
+## Web Backend Sample
+
+[spring-petclinic](https://github.com/spring-projects/spring-petclinic)
