@@ -2,7 +2,7 @@
 
 ## Setup
 
-#### JDK
+### JDK
 
 `Windows` 配置 `JDK` 可以使用 `PowerShell` 执行以下命令。
 
@@ -15,7 +15,7 @@ winget install AdoptOpenJDK.OpenJDK.8
 
 IDE可以选择 `Eclipse` 或 `VSCode`
 
-#### `Eclipse` 插件
+### `Eclipse` 插件
 
 [Eclipse EGit: Git Integration for Eclipse](https://github.com/eclipse-egit/egit/wiki/New-and-Noteworthy-7.1)
 
@@ -23,7 +23,7 @@ IDE可以选择 `Eclipse` 或 `VSCode`
 
 [Eclipse Maven Integration - m2eclipse](https://github.com/eclipse-m2e/m2e-core/blob/master/RELEASE_NOTES.md#270)
 
-#### `VSCode`
+### `VSCode`
 
 ```powershell
 winget search vscode
@@ -57,9 +57,14 @@ public class App {
 
 ```
 
+```bash
+javac -d <classpath_dir> App.java
+java -classpath <classpath_dir> App
+```
+
 ## Strings
 
-#### char
+### char
 
 - `char` is a Java primitive data type.
 
@@ -101,7 +106,7 @@ Methods:
 
 - toString() // returns a String object
 
-#### String
+### String
 
 - String is a provided class in Java
 
@@ -126,7 +131,7 @@ String s = "j";
 String[] strarray = {"One", "Two", "Three", "Four", "Five"};
 ```
 
-##### Java 8+ methods
+#### Java 8+ methods
 
 - char charAt(int index)
 
@@ -154,7 +159,7 @@ String[] strarray = {"One", "Two", "Three", "Four", "Five"};
 
 - String trim()
 
-#### String Arrays
+### String Arrays
 
 - Every main method in Java has a string array declaration as part of it's standard formatting:
 
@@ -169,7 +174,7 @@ public static void main(String[] args) {
 
 - Java array indexes start at 0
 
-#### ArrayLists
+### ArrayLists
 
 - You need to know about `java.util.ArrayList`
 
@@ -185,9 +190,9 @@ ArrayList<String> flexibleList = new ArrayList<String>();
 
 ## Formatting Strings
 
-#### char to String
+### char to String
 
-##### String.valueOf(char)
+#### String.valueOf(char)
 
 - To format char as a String, use the String.valueOf(char) method
 
@@ -197,9 +202,9 @@ public static String charToString(char c) {
 }
 ```
 
-##### String to char
+#### String to char
 
-##### charAt(int)
+#### charAt(int)
 
 - to format a character in a String as a char, use the charAt(int) method
 
@@ -209,9 +214,9 @@ public static char StringToChar(String str) {
 }
 ```
 
-#### String to char array
+### String to char array
 
-##### toCharArray() Method
+#### toCharArray() Method
 
 - creates an accessible char[] array
 
@@ -227,7 +232,7 @@ String str = "onetwothreefourfive";
 char chararray[] = str.toCharArray();
 ```
 
-##### getChars()
+#### getChars()
 
 - Copy characters from a string or a part of a string into a char[] array
 
@@ -237,7 +242,7 @@ char chararray[] = str.toCharArray();
 mystr.getChars(0, 16, chararr, 0);
 ```
 
-#### Streaming - chars() method
+### Streaming - chars() method
 
 - Creates a Stream from a String object
 
@@ -249,9 +254,9 @@ mystr.getChars(0, 16, chararr, 0);
 Character[] arraychars = str.chars().mapToObj(c -> (char) c).toArray(Character::new);
 ```
 
-#### String Array to String
+### String Array to String
 
-##### Arrays.toString()
+#### Arrays.toString()
 
 - Simple way to convert an array to a string
 
@@ -259,7 +264,7 @@ Character[] arraychars = str.chars().mapToObj(c -> (char) c).toArray(Character::
 String str = Arrays.toString(strarray);
 ```
 
-##### StringBuilder() and append()
+#### StringBuilder() and append()
 
 - Provides the option to conditionally add array elements to a string
 
@@ -270,7 +275,7 @@ for (int i = 0; i < strarray.length; ++i) {
 }
 ```
 
-##### String Joiner
+#### String Joiner
 
 - Options for adding strings at the beginning and end of the constructed string
 
@@ -282,7 +287,7 @@ for (int i = 0; i < strarray.length; ++i) {
 StringJoiner stringj = new StringJoiner(";;;", "[", "]");
 ```
 
-##### Stream and Collector
+#### Stream and Collector
 
 - Useful if you are provided with a string to consume
 
@@ -294,9 +299,9 @@ StringJoiner stringj = new StringJoiner(";;;", "[", "]");
 return Stream.of(strarray).collect(Collectors.joining());
 ```
 
-#### String to String Array
+### String to String Array
 
-##### split() method
+#### split() method
 
 - Splits a delimited string into string[] array using a specified character as a delimiter
 
@@ -304,7 +309,7 @@ return Stream.of(strarray).collect(Collectors.joining());
 String[] strarray = str.split(",");
 ```
 
-##### pattern.split()
+#### pattern.split()
 
 - Splits a delimited string into string[] array using a specified pattern as a delimiter
 
@@ -315,7 +320,7 @@ String splitpattern = "\\s\\s";  // 2 spaces
 Pattern pattern = Pattern.compile(splitpattern);
 ```
 
-##### StringTokenizer Class
+#### StringTokenizer Class
 
 - Splits a string object into tokens
 
@@ -345,11 +350,52 @@ while (tokenizer.hasMoreTokens()) {
 
 ## Conditional Logic
 
+#### switch(Java 7+)
+
+- Multiple possible execution paths
+
+- Chooses one possibility out of multiple options
+
+- `break` statement is used to terminate statement flow
+
+- `default` statement is optional
+
+Syntax:
+
+```java
+switch (expression) {
+    case value1 :
+        statements..
+        break;
+    case value2 :
+        statements..
+    default :
+        statements..
+}
+```
+
+#### switch(Java 14+)
+
+Syntax
+
+```java
+switch (expression) {
+    case value1 -> boolean;
+    case values -> boolean;
+    case value3 -> boolean;
+    default :-> {
+        statements..
+    }
+}
+```
+
 ## Arrays
 
 ## Collections
 
 ## Maps
+
+- `HashMap` 非线程安全，可使用线程安全的 `ConcurrentHashMap` 替代。
 
 ## Loops
 

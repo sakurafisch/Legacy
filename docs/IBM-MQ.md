@@ -1,2 +1,2 @@
-# IBM MQ
+# IBM-MQ
 
