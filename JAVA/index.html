@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="zh_Hans_CN" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>JAVA - Legacy</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Legacy</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Legacy</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../BI/" class="nav-link">BI</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../DB2/" class="nav-link">DB2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../IBM-MQ/" class="nav-link">IBM-MQ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">JAVA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../RPA/" class="nav-link">RPA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../RocketMQ/" class="nav-link">RocketMQ</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> 搜索
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../IBM-MQ/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> 上一章
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../RPA/" class="nav-link">
+                                    下一章 <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
+                                <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                <span class="d-lg-none ms-2">Toggle theme</span>
+                              </button>
+                              <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="true">
+                                    <i class="fa-solid fa-sun fa-fw"></i>
+                                    <span class="ms-2">Light</span>
+                                    <i class="fa-solid fa-check ms-auto"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                    <i class="fa-solid fa-moon fa-fw"></i>
+                                    <span class="ms-2">Dark</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                                <li>
+                                  <button class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto" aria-pressed="false">
+                                    <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                                    <span class="ms-2">Auto</span>
+                                    <i class="fa-solid fa-check ms-auto d-none"></i>
+                                  </button>
+                                </li>
+                              </ul>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="../js/darkmode.js"></script>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="目录">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#java" class="nav-link">JAVA</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#setup" class="nav-link">Setup</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#jdk" class="nav-link">JDK</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#eclipse" class="nav-link">Eclipse 插件</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#vscode" class="nav-link">VSCode</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#web-backend-sample" class="nav-link">Web Backend Sample</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#hello-world" class="nav-link">Hello World</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#strings" class="nav-link">Strings</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#char" class="nav-link">char</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#string" class="nav-link">String</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="4"><a href="#java-8-methods" class="nav-link">Java 8+ methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#string-arrays" class="nav-link">String Arrays</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#arraylists" class="nav-link">ArrayLists</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#formatting-strings" class="nav-link">Formatting Strings</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#char-to-string" class="nav-link">char to String</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="4"><a href="#stringvalueofchar" class="nav-link">String.valueOf(char)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#string-to-char" class="nav-link">String to char</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#charatint" class="nav-link">charAt(int)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#string-to-char-array" class="nav-link">String to char array</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="4"><a href="#tochararray-method" class="nav-link">toCharArray() Method</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#getchars" class="nav-link">getChars()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#streaming-chars-method" class="nav-link">Streaming - chars() method</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#string-array-to-string" class="nav-link">String Array to String</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="4"><a href="#arraystostring" class="nav-link">Arrays.toString()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#stringbuilder-and-append" class="nav-link">StringBuilder() and append()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#string-joiner" class="nav-link">String Joiner</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#stream-and-collector" class="nav-link">Stream and Collector</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#string-to-string-array" class="nav-link">String to String Array</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="4"><a href="#split-method" class="nav-link">split() method</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#patternsplit" class="nav-link">pattern.split()</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#stringtokenizer-class" class="nav-link">StringTokenizer Class</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#numeric" class="nav-link">Numeric</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#records" class="nav-link">Records</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#conditional-logic" class="nav-link">Conditional Logic</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="4"><a href="#switchjava-7" class="nav-link">switch(Java 7+)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="4"><a href="#switchjava-14" class="nav-link">switch(Java 14+)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#arrays" class="nav-link">Arrays</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#collections" class="nav-link">Collections</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#maps" class="nav-link">Maps</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#loops" class="nav-link">Loops</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#maven" class="nav-link">Maven</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#classes-and-packages" class="nav-link">Classes and Packages</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#methods" class="nav-link">Methods</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#modules" class="nav-link">Modules</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#testing" class="nav-link">Testing</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="java">JAVA</h1>
+<h2 id="setup">Setup</h2>
+<h3 id="jdk">JDK</h3>
+<p><code>Windows</code> 配置 <code>JDK</code> 可以使用 <code>PowerShell</code> 执行以下命令。</p>
+<pre><code class="language-powershell">winget search openjdk
+winget install AdoptOpenJDK.OpenJDK.8
+</code></pre>
+<p>如果需要安装多个JDK版本，可以使用 <a href="https://github.com/ystyle/jvms">jvms</a></p>
+<p>IDE可以选择 <code>Eclipse</code> 或 <code>VSCode</code></p>
+<h3 id="eclipse"><code>Eclipse</code> 插件</h3>
+<p><a href="https://github.com/eclipse-egit/egit/wiki/New-and-Noteworthy-7.1">Eclipse EGit: Git Integration for Eclipse</a></p>
+<p><a href="https://github.com/eclipse-linuxtools/org.eclipse.linuxtools/blob/master/RELEASE_NOTES.md">Eclipse Linux Tools</a></p>
+<p><a href="https://github.com/eclipse-m2e/m2e-core/blob/master/RELEASE_NOTES.md#270">Eclipse Maven Integration - m2eclipse</a></p>
+<h3 id="vscode"><code>VSCode</code></h3>
+<pre><code class="language-powershell">winget search vscode
+winget install Microsoft.VisualStudioCode
+</code></pre>
+<p>Plz refer to <a href="https://code.visualstudio.com/docs/languages/java">Java in Visual Studio Code
+</a></p>
+<p>Check <a href="https://vscodium.com/">VSCodium</a> if you need a freely-licensed binary distribution</p>
+<pre><code class="language-powershell">winget search vscodium
+winget install VSCodium.VSCodium
+</code></pre>
+<h2 id="web-backend-sample">Web Backend Sample</h2>
+<p><a href="https://github.com/spring-projects/spring-petclinic">spring-petclinic</a></p>
+<p><a href="https://github.com/quarkusio/quarkus-super-heroes">quarkus-super-heroes</a></p>
+<h2 id="hello-world">Hello World</h2>
+<pre><code class="language-java">public class App {
+    public static void main(String[] args) throws Exception {
+        System.out.println(&quot;Hello, World!&quot;);
+    }
+}
+
+</code></pre>
+<pre><code class="language-bash">javac -d &lt;classpath_dir&gt; App.java
+java -classpath &lt;classpath_dir&gt; App
+</code></pre>
+<h2 id="strings">Strings</h2>
+<h3 id="char">char</h3>
+<ul>
+<li>
+<p><code>char</code> is a Java primitive data type.</p>
+</li>
+<li>
+<p>Primitive means that the variable holds the actual value, not a reference.</p>
+</li>
+<li>
+<p>Others: boolean, byte, short, int, long. float and double.</p>
+</li>
+<li>
+<p>char not Char</p>
+</li>
+<li>
+<p>The char data type can store: 1.Any letter, 2.Numbers between 0 to 65535 Inclusive, 3.16-bit Unicode characters including special characters.</p>
+</li>
+<li>
+<p>A value for char is enclosed in single quotes "</p>
+</li>
+<li>
+<p>There is also an object wrapper called character for a char data type.</p>
+</li>
+</ul>
+<p>Examples:</p>
+<pre><code class="language-java">char ch = 'j';
+char uniChar = '\0x004A'; // j in unicode
+char[] charArray = { '1', '2', '3', '4', '@'};
+</code></pre>
+<p>Methods:</p>
+<ul>
+<li>
+<p>isLetter()</p>
+</li>
+<li>
+<p>isDigit()</p>
+</li>
+<li>
+<p>isWhitespace()</p>
+</li>
+<li>
+<p>isUpperCase()</p>
+</li>
+<li>
+<p>isLowerCase()</p>
+</li>
+<li>
+<p>toUpperCase()</p>
+</li>
+<li>
+<p>toLowerCase()</p>
+</li>
+<li>
+<p>toString() // returns a String object</p>
+</li>
+</ul>
+<h3 id="string">String</h3>
+<ul>
+<li>
+<p>String is a provided class in Java</p>
+</li>
+<li>
+<p>String not string</p>
+</li>
+<li>
+<p>String (and any other class) is a reference to an object</p>
+</li>
+<li>
+<p>A value for String is enclosed in double quotes ""</p>
+</li>
+<li>
+<p>String can also be stored in arrays, which are also objects</p>
+</li>
+<li>
+<p>String is made up of an array of chars</p>
+</li>
+<li>
+<p>Because strings are objects, they are immutable (cannot be changed once created)</p>
+</li>
+<li>
+<p>String Buffer &amp; String Builder Classes provide mutable string functionality.</p>
+</li>
+</ul>
+<p>Examples:</p>
+<pre><code class="language-java">String s = &quot;j&quot;;
+String[] strarray = {&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;, &quot;Four&quot;, &quot;Five&quot;};
+</code></pre>
+<h4 id="java-8-methods">Java 8+ methods</h4>
+<ul>
+<li>
+<p>char charAt(int index)</p>
+</li>
+<li>
+<p>int compareTo(String anotherString)</p>
+</li>
+<li>
+<p>String concat(String str)</p>
+</li>
+<li>
+<p>int hashCode()</p>
+</li>
+<li>
+<p>int indexOf</p>
+</li>
+<li>
+<p>int length()</p>
+</li>
+<li>
+<p>String replace and String replaceAll</p>
+</li>
+<li>
+<p>String[] split(String regex)</p>
+</li>
+<li>
+<p>boolean startsWith(String prefix)</p>
+</li>
+<li>
+<p>String substring(int beginIndex)</p>
+</li>
+<li>
+<p>String toLowerCase()</p>
+</li>
+<li>
+<p>String toUpperCase()</p>
+</li>
+<li>
+<p>String trim()</p>
+</li>
+</ul>
+<h3 id="string-arrays">String Arrays</h3>
+<ul>
+<li>Every main method in Java has a string array declaration as part of it's standard formatting:</li>
+</ul>
+<pre><code class="language-java">public static void main(String[] args) {
+}
+</code></pre>
+<ul>
+<li>
+<p>String arrays can contain multiple string elements, also called tokens</p>
+</li>
+<li>
+<p>elements and tokens are referred to via their corresponding index number(int)</p>
+</li>
+<li>
+<p>Java array indexes start at 0</p>
+</li>
+</ul>
+<h3 id="arraylists">ArrayLists</h3>
+<ul>
+<li>
+<p>You need to know about <code>java.util.ArrayList</code></p>
+</li>
+<li>
+<p>The size of an ArrayList can be modified, but the size of an array cannot.</p>
+</li>
+<li>
+<p>Elements can be added and removed from an ArrayList at any time</p>
+</li>
+</ul>
+<p>Example</p>
+<pre><code class="language-java">ArrayList&lt;String&gt; flexibleList = new ArrayList&lt;String&gt;();
+</code></pre>
+<h2 id="formatting-strings">Formatting Strings</h2>
+<h3 id="char-to-string">char to String</h3>
+<h4 id="stringvalueofchar">String.valueOf(char)</h4>
+<ul>
+<li>To format char as a String, use the String.valueOf(char) method</li>
+</ul>
+<pre><code class="language-java">public static String charToString(char c) {
+    return Character.toString(c);
+}
+</code></pre>
+<h4 id="string-to-char">String to char</h4>
+<h4 id="charatint">charAt(int)</h4>
+<ul>
+<li>to format a character in a String as a char, use the charAt(int) method</li>
+</ul>
+<pre><code class="language-java">public static char StringToChar(String str) {
+    return str.charAt(0);
+}
+</code></pre>
+<h3 id="string-to-char-array">String to char array</h3>
+<h4 id="tochararray-method">toCharArray() Method</h4>
+<ul>
+<li>
+<p>creates an accessible char[] array</p>
+</li>
+<li>
+<p>Java stores strings as primitive char[] arrays internally but they are not accessible</p>
+</li>
+<li>
+<p>Useful when working with non delimited string.</p>
+</li>
+</ul>
+<pre><code class="language-java">String str = &quot;onetwothreefourfive&quot;;
+</code></pre>
+<pre><code class="language-java">char chararray[] = str.toCharArray();
+</code></pre>
+<h4 id="getchars">getChars()</h4>
+<ul>
+<li>
+<p>Copy characters from a string or a part of a string into a char[] array</p>
+</li>
+<li>
+<p>Arguments are provided for string start, string end, array start, and Destination</p>
+</li>
+</ul>
+<pre><code class="language-java">mystr.getChars(0, 16, chararr, 0);
+</code></pre>
+<h3 id="streaming-chars-method">Streaming - chars() method</h3>
+<ul>
+<li>
+<p>Creates a Stream from a String object</p>
+</li>
+<li>
+<p>Use the mapToObj() and toArray() with chars() to convert a string to array of characters</p>
+</li>
+<li>
+<p>helpful when selecting characters in a string based on conditions of each character</p>
+</li>
+</ul>
+<pre><code class="language-java">Character[] arraychars = str.chars().mapToObj(c -&gt; (char) c).toArray(Character::new);
+</code></pre>
+<h3 id="string-array-to-string">String Array to String</h3>
+<h4 id="arraystostring">Arrays.toString()</h4>
+<ul>
+<li>Simple way to convert an array to a string</li>
+</ul>
+<pre><code class="language-java">String str = Arrays.toString(strarray);
+</code></pre>
+<h4 id="stringbuilder-and-append">StringBuilder() and append()</h4>
+<ul>
+<li>Provides the option to conditionally add array elements to a string</li>
+</ul>
+<pre><code class="language-java">StringBuilder stringb = new StringBuilder();
+for (int i = 0; i &lt; strarray.length; ++i) {
+    stringb.append(strarray[i] + ' ');
+}
+</code></pre>
+<h4 id="string-joiner">String Joiner</h4>
+<ul>
+<li>
+<p>Options for adding strings at the beginning and end of the constructed string</p>
+</li>
+<li>
+<p>Also defined characters to be used between array elements</p>
+</li>
+<li>
+<p><code>java.util.StringJoiner</code> must be imported into your class</p>
+</li>
+</ul>
+<pre><code class="language-java">StringJoiner stringj = new StringJoiner(&quot;;;;&quot;, &quot;[&quot;, &quot;]&quot;);
+</code></pre>
+<h4 id="stream-and-collector">Stream and Collector</h4>
+<ul>
+<li>
+<p>Useful if you are provided with a string to consume</p>
+</li>
+<li>
+<p>Also can be used to produce an ArrayList</p>
+</li>
+<li>
+<p><code>java.util.stream.*</code> and <code>java.util.Arrays</code> must be imported into your class</p>
+</li>
+</ul>
+<pre><code class="language-java">return Stream.of(strarray).collect(Collectors.joining());
+</code></pre>
+<h3 id="string-to-string-array">String to String Array</h3>
+<h4 id="split-method">split() method</h4>
+<ul>
+<li>Splits a delimited string into string[] array using a specified character as a delimiter</li>
+</ul>
+<pre><code class="language-java">String[] strarray = str.split(&quot;,&quot;);
+</code></pre>
+<h4 id="patternsplit">pattern.split()</h4>
+<ul>
+<li>
+<p>Splits a delimited string into string[] array using a specified pattern as a delimiter</p>
+</li>
+<li>
+<p><code>java.util.regex</code> Pattern must be imported into your class</p>
+</li>
+</ul>
+<pre><code class="language-java">String splitpattern = &quot;\\s\\s&quot;;  // 2 spaces
+Pattern pattern = Pattern.compile(splitpattern);
+</code></pre>
+<h4 id="stringtokenizer-class">StringTokenizer Class</h4>
+<ul>
+<li>
+<p>Splits a string object into tokens</p>
+</li>
+<li>
+<p>Used to split a non-delimited string into an array</p>
+</li>
+<li>
+<p>Delimiters can be specified, default = space</p>
+</li>
+<li>
+<p><code>java.util.StringTokenizer</code> must be import into your class</p>
+</li>
+</ul>
+<pre><code class="language-java">import java.util.StringTokenizer;
+// ...
+StringTokenizer = tokenizer = new StringTokenizer(str);
+String[] strarray = new String[tokenizer.countTokens()];
+// add tokens to an array
+int i = 0;
+while (tokenizer.hasMoreTokens()) {
+    strarray[i] = tokenizer.nextToken();
+    ++i;
+}
+
+</code></pre>
+<h2 id="numeric">Numeric</h2>
+<h2 id="records">Records</h2>
+<h2 id="conditional-logic">Conditional Logic</h2>
+<h4 id="switchjava-7">switch(Java 7+)</h4>
+<ul>
+<li>
+<p>Multiple possible execution paths</p>
+</li>
+<li>
+<p>Chooses one possibility out of multiple options</p>
+</li>
+<li>
+<p><code>break</code> statement is used to terminate statement flow</p>
+</li>
+<li>
+<p><code>default</code> statement is optional</p>
+</li>
+</ul>
+<p>Syntax:</p>
+<pre><code class="language-java">switch (expression) {
+    case value1 :
+        statements..
+        break;
+    case value2 :
+        statements..
+    default :
+        statements..
+}
+</code></pre>
+<h4 id="switchjava-14">switch(Java 14+)</h4>
+<p>Syntax</p>
+<pre><code class="language-java">switch (expression) {
+    case value1 -&gt; boolean;
+    case values -&gt; boolean;
+    case value3 -&gt; boolean;
+    default :-&gt; {
+        statements..
+    }
+}
+</code></pre>
+<h2 id="arrays">Arrays</h2>
+<h2 id="collections">Collections</h2>
+<h2 id="maps">Maps</h2>
+<ul>
+<li><code>HashMap</code> 非线程安全，可使用线程安全的 <code>ConcurrentHashMap</code> 替代。</li>
+</ul>
+<h2 id="loops">Loops</h2>
+<h2 id="maven">Maven</h2>
+<h2 id="classes-and-packages">Classes and Packages</h2>
+<h2 id="methods">Methods</h2>
+<h2 id="modules">Modules</h2>
+<h2 id="testing">Testing</h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>用<a href="https://www.mkdocs.org/">MkDocs</a>建立的文档。</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">搜索</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+            </div>
+            <div class="modal-body">
+                <p>从这里您可以搜索这些文档。在下面输入您需要搜索的内容。</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="搜索..." id="mkdocs-search-query" title="在此输入搜索内容">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="没有搜索到结果"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">键盘热键</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="关闭"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">键</th>
+                    <th>动作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>打开这个帮助</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>下一页面</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>上一页面</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>搜索</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
